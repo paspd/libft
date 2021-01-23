@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldauga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/23 11:22:49 by ldauga            #+#    #+#             */
+/*   Updated: 2021/01/23 11:22:51 by ldauga           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../incs/libft.h"
 
-void    ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-    int i;
+	int i;
 
-    i = 0;
-    if (!str)
-        return ;
-    while (str[i++])
-        ft_putchar(str[i]);
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i++])
+		ft_putchar(str[i]);
 }

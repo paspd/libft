@@ -1,6 +1,20 @@
-HEADER		=	incs/libft.h
+ERASE	=	\033[2K\r
+GREY	=	\033[30m
+RED		=	\033[31m
+GREEN	=	\033[32m
+YELLOW	=	\033[33m
+BLUE	=	\033[34m
+PINK	=	\033[35m
+CYAN	=	\033[36m
+ORANGE	=	\033[38;5;166m
+PURPLE	=	\033[38;5;128m
+WHITE	=	\033[37m
+END		=	\033[0m
+BOLD	=	\033[1m
+UNDER	=	\033[4m
+SUR		=	\033[7m
 
-SRCS_PATH	=	srcs
+HEADER		=	incs/libft.h
 
 SRCS		=	srcs/convert/ft_atoi.c \
 				srcs/convert/ft_itoa.c \
@@ -47,9 +61,12 @@ SRCS		=	srcs/convert/ft_atoi.c \
 				srcs/list/ft_lstlast.c \
 				srcs/list/ft_lstmap.c \
 				srcs/list/ft_lstnew.c \
-				srcs/list/ft_lstsize.c
+				srcs/list/ft_lstsize.c \
+				srcs/GNL/get_next_line.c \
 
 OBJS		=	${SRCS:.c=.o}
+
+OBJS_FILE	=	OBJ
 
 FLAGS		=	-Werror -Wall -Wextra
 
@@ -58,20 +75,27 @@ NAME		=	libft.a
 INCS		=	libft.h
 
 .c.o:
-	gcc ${FLAGS} -I ${INCS} -c -o $@ $<
+	@gcc ${FLAGS} -I ${INCS} -c -o $@ $< -D BUFFER_SIZE=1
+	@printf "$(YELLOW)$(BOLD)$(ERASE)COMPILING: $(END) $<"
 
 all:	${NAME}
 
 ${HEADER}:	${OBJS}
 
 ${NAME}:	${OBJS}
-	ar rc ${NAME} $(OBJS)
+	@mkdir $(OBJS_FILE)
+	@ar rc ${NAME} $(OBJS)
+	@printf "$(ERASE)"
+	@mv */*/*.o $(OBJS_FILE)
+	@printf "$(ERASE)$(RED)▓$(ORANGE)▓$(YELLOW)▓$(GREEN)▒$(BLUE)▒$(PURPLE)░░$(GREEN)$(BOLD)[LIBFT.A GENERATED]$(END)$(PURPLE)░░$(BLUE)▒$(GREEN)▒$(YELLOW)▓$(ORANGE)▓$(RED)▓\n$(END)"
 
 clean:
-	rm -rf ${OBJS}
+	@rm -rf $(OBJS_FILE)
+	@echo "\033[40;38;5;82m[CLEAN \033[30;48;5;82mDONE]\033[0m"
 
-fclean:	clean
-	rm -rf ${NAME} 
+fclean:
+	@rm -rf $(OBJS_FILE) ${NAME}
+	@printf "$(GREEN)$(BOLD)[FCLEAN DONE]\n$(END)"
 
 re:	fclean all
 

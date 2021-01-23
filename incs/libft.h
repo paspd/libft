@@ -6,13 +6,14 @@
 /*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:28:25 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/22 17:26:23 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/01/23 12:27:06 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "ft_printf.h"
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -67,6 +68,8 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 		void (*del)(void *));
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstnew(void *content);
+
+int				get_next_line(int fd, char **line);
 
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
