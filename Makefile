@@ -91,7 +91,7 @@ ${NAME}:	${OBJS}
 
 clean:
 	@rm -rf $(OBJS_FILE)
-	@echo "\033[40;38;5;82m[CLEAN \033[30;48;5;82mDONE]\033[0m"
+	@echo "$(BOLD)$(GREEN)[CLEAN DONE]$(END)"
 
 fclean:
 	@rm -rf $(OBJS_FILE) ${NAME}
