@@ -63,6 +63,8 @@ SRCS		=	srcs/convert/ft_atoi.c \
 				srcs/list/ft_lstnew.c \
 				srcs/list/ft_lstsize.c \
 				srcs/GNL/get_next_line.c \
+				srcs/files/ft_open_files.c \
+				srcs/files/ft_close_files.c
 
 OBJS		=	${SRCS:.c=.o}
 

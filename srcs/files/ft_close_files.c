@@ -6,9 +6,11 @@
 /*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:45:08 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/27 14:47:16 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 14:58:04 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../incs/libft.h"
 
 int	ft_close_files(int fd)
 {
