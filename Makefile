@@ -76,7 +76,7 @@ INCS		=	libft.h
 
 .c.o:
 	@gcc ${FLAGS} -I ${INCS} -c -o $@ $< -D BUFFER_SIZE=1
-	@printf "$(YELLOW)$(BOLD)$(ERASE)COMPILING: $(END) $<"
+	@printf "$(YELLOW)$(BOLD)$(ERASE)COMPILING: $(END) $(RED)$<$(END)"
 
 all:	${NAME}
 
