@@ -6,7 +6,7 @@
 /*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:28:25 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/27 12:30:07 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 12:31:46 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int				get_next_line(int fd, char **line);
 
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
-char			*ft_realloc(char *src, int size)
+char			*ft_realloc(char *src, int size);
 
 
 void			ft_putchar(char c);
