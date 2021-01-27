@@ -6,7 +6,7 @@
 /*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:28:25 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/27 14:56:20 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 15:32:51 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct	s_list
 
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
+
+int	ft_open_files(char *str);
+int	ft_close_files(int fd);
 
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
