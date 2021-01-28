@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldauga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 11:22:49 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/23 11:22:51 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 16:36:27 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_putstr(char *str)
 	i = 0;
 	if (!str)
 		return ;
-	while (str[i++])
-		ft_putchar(str[i]);
+	while (str[i])
+		ft_putchar(str[i++]);
 }
