@@ -6,13 +6,13 @@
 /*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:53:52 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/22 15:59:23 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 09:57:57 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	int				i;
 	int				limit;

@@ -6,15 +6,15 @@
 /*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:31:17 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/22 15:59:23 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 09:39:56 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

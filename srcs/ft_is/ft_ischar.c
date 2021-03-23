@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_ischar.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 04:27:11 by ldauga            #+#    #+#             */
-/*   Updated: 2021/03/23 09:58:00 by ldauga           ###   ########lyon.fr   */
+/*   Created: 2021/02/04 12:45:58 by ldauga            #+#    #+#             */
+/*   Updated: 2021/03/23 09:26:06 by ldauga           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/libft.h"
 
-char	*ft_strnstr(char *haystack, char *needle, size_t len)
+int	ft_ischar(char *str, int c)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
 
-	i = 0;
-	if (!haystack)
+	if (!str)
 		return (0);
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (i < len && haystack[i])
-	{
-		j = 0;
-		while (haystack[i + j] == needle[j] && i + j < len)
-		{
-			j++;
-			if (needle[j] == '\0')
-				return ((char *)&haystack[i]);
-		}
-		i++;
-	}
+	i = 0;
+	while (str[i])
+		if (str[i++] == c)
+			return (1);
 	return (0);
 }
