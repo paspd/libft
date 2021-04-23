@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: leodauga <leodauga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:28:25 by ldauga            #+#    #+#             */
-/*   Updated: 2021/03/23 10:19:53 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/04/23 19:01:44 by leodauga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int 			content;
 	struct s_list	*next;
 }				t_list;
 
@@ -76,16 +76,16 @@ char			*ft_strcatchar(char *s1, int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 
-void			ft_lstadd_back(t_list **alst, t_list *ne);
-void			ft_lstadd_front(t_list **alst, t_list *ne);
-void			ft_lstclear(t_list **lst, void (*del)(void *));
-void			ft_lstdelone(t_list *lst, void (*del)(void *));
-void			ft_lstiter(t_list *lst, void (*f)(void *));
+void			ft_dellst_back(t_list **list);
+void			ft_dellst_front(t_list **list);
+void			ft_dellst_one(t_list **list, int i);
+void			ft_lstadd_back(t_list **list, int valeur);
+void			ft_lstadd_front(t_list **list, int valeur);
+void			ft_lstaff(t_list *list);
+void			ft_lstaff_color(t_list *list, char *color);
+void			ft_lstclear(t_list **lst);
 t_list			*ft_lstlast(t_list *lst);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
 int				ft_lstsize(t_list *lst);
-t_list			*ft_lstnew(void *content);
 
 int				get_next_line(int fd, char **line);
 void			gnl_ft_strcpy(char *line, char *buffer, int len, int save);

@@ -3,35 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: leodauga <leodauga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 16:20:53 by ldauga            #+#    #+#             */
-/*   Updated: 2021/01/22 15:59:23 by ldauga           ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:41:41 by leodauga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstadd_back(t_list **list, int valeur)
 {
-	int		i;
-	t_list	*tmp;
+	t_list *new;
+	t_list *tmp;
 
-	i = 0;
-	tmp = *alst;
-	if ((!alst) || (!new))
-		return ;
-	new->next = NULL;
-	if (!*alst)
+	new = malloc(sizeof(*new));
+	if (new == NULL)
+		exit(EXIT_FAILURE);
+	if (*list == NULL)
 	{
-		*alst = new;
+		new->content = valeur;
+		new->next = NULL;
+		*list = new;
+		return ;
 	}
 	else
 	{
+		new->content = valeur;
+		new->next = NULL;
+		tmp = *list;
 		while (tmp->next != NULL)
-		{
 			tmp = tmp->next;
-		}
 		tmp->next = new;
 	}
 }

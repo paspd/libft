@@ -77,14 +77,14 @@ SRCS_FILES	=	convert/ft_atoi.c \
 				write/ft_putstr.c \
 				write/ft_putnbr.c \
 				write/ft_putstr_color.c \
+				list/ft_dellst_back.c \
+				list/ft_dellst_front.c \
+				list/ft_dellst_one.c \
 				list/ft_lstadd_back.c \
 				list/ft_lstadd_front.c \
+				list/ft_lstaff.c \
 				list/ft_lstclear.c \
-				list/ft_lstdelone.c \
-				list/ft_lstiter.c \
 				list/ft_lstlast.c \
-				list/ft_lstmap.c \
-				list/ft_lstnew.c \
 				list/ft_lstsize.c \
 				gnl/get_next_line.c \
 				gnl/get_next_line_utils.c \
