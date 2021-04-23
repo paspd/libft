@@ -6,7 +6,7 @@
 /*   By: leodauga <leodauga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:28:25 by ldauga            #+#    #+#             */
-/*   Updated: 2021/04/23 19:01:44 by leodauga         ###   ########.fr       */
+/*   Updated: 2021/04/23 19:19:44 by leodauga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void			ft_lstaff(t_list *list);
 void			ft_lstaff_color(t_list *list, char *color);
 void			ft_lstclear(t_list **lst);
 t_list			*ft_lstlast(t_list *lst);
+t_list			*ft_lstn(t_list *lst, int n);
 int				ft_lstsize(t_list *lst);
 
 int				get_next_line(int fd, char **line);
