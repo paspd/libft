@@ -6,7 +6,7 @@
 /*   By: leodauga <leodauga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:28:25 by ldauga            #+#    #+#             */
-/*   Updated: 2021/04/23 19:19:44 by leodauga         ###   ########.fr       */
+/*   Updated: 2021/04/23 20:58:57 by leodauga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ char			*ft_realloc(char *src, int size);
 
 int				ft_rand_in_range(int lower, int upper);
 int				ft_rand_percent(int nb1, int percent_nb1, int nb2);
+void			ft_swap(int *a, int *b);
 
 void			ft_putchar(char c);
 void			ft_putstr(char *str);

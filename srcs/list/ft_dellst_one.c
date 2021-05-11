@@ -9,7 +9,7 @@ void	ft_dellst_one(t_list **list, int i)
     limit = 1;
 	if (*list == NULL)
 		return ;
-	if (ft_lstsize(*list) <= i)
+	if (ft_lstsize(*list) < i)
 		return ;
 	if ((*list)->next == NULL)
 	{
@@ -26,5 +26,7 @@ void	ft_dellst_one(t_list **list, int i)
 		limit++;
 	}
 	ptmp->next = tmp->next;
+	if (tmp->next == NULL)
+		ptmp->next = NULL;
 	free(tmp);
 }

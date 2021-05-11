@@ -1,100 +1,94 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ldauga <ldauga@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 10:03:38 by ldauga            #+#    #+#             */
-/*   Updated: 2021/03/23 10:18:38 by ldauga           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../incs/libft.h"
 
-int	save_check(char *buffer)
+int		have_return(char *save)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < BUFFER_SIZE)
+	if (!save)
+		return (0);
+	while (save[i])
 	{
-		if (buffer[i])
-			return (i);
+		if (save[i] == '\n')
+			return (1);
 		i++;
 	}
-	return (-1);
-}
-
-int	process(char **line, char *buffer, int save, int fd)
-{
-	int	len;
-	int	eol;
-
-	eol = 0;
-	while (1)
-	{
-		save = save_check(buffer);
-		len = gnl_ft_strlen(buffer, save);
-		if (buffer[save + len] == '\n')
-			eol = 1;
-		if ((*line)[0] == 0)
-			gnl_ft_strcpy(*line, buffer, len, save);
-		else
-			*line = gnl_ft_strjoin(*line, buffer, len, save);
-		if (*line == NULL)
-			return (-1);
-		if (eol)
-			return (1);
-		if (read(fd, buffer, BUFFER_SIZE) == 0)
-			return (0);
-	}
-	return (-1);
-}
-
-int	nosave_noread(char **line)
-{
-	*line = malloc(sizeof(char));
-	if (*line == NULL)
-		return (-1);
-	*line[0] = 0;
 	return (0);
 }
 
-int	mini_calloc(char **line, int len)
+char	*get_new_line(char **save, int fd)
 {
-	*line = malloc(sizeof(char) * (len + 1));
-	if (*line == NULL)
+	int		i;
+	char	*temp;
+
+	if (!save)
 		return (0);
-	(*line)[0] = '\0';
-	(*line)[len] = 0;
-	return (1);
+	i = 0;
+	while (save[fd][i] && save[fd][i] != '\n')
+		i++;
+	temp = ft_calloc(sizeof(char), (i + 1));
+	if (!temp)
+		return (0);
+	i = 0;
+	while (save[fd][i] && save[fd][i] != '\n')
+	{
+		temp[i] = save[fd][i];
+		i++;
+	}
+	temp[i] = '\0';
+	return (temp);
 }
 
-int	get_next_line(int fd, char **line)
+char	*get_new_save(char **save, int fd)
 {
-	int			len;
-	int			save;
-	int			z;
-	static char	buffer[OPEN_MAX][1 + 1] = {{0}};
+	char	*temp;
+	int		i;
+	int		j;
 
-	len = 0;
-	z = 0;
-	*line = NULL;
-	if (fd < 0 || fd >= OPEN_MAX)
-		return (-1);
-	save = save_check(buffer[fd]);
-	if (save == -1)
-		z = read(fd, buffer[fd], 1);
-	if (save == -1 && z == 0)
-		return (nosave_noread(line));
-	save = save_check(buffer[fd]);
-	if (z > 0 || save >= 0)
+	j = 0;
+	i = 0;
+	if (!save[fd])
+		return (0);
+	while (save[fd][i] && save[fd][i] != '\n')
+		i++;
+	if (!save[fd][i])
 	{
-		len = gnl_ft_strlen(buffer[fd], save);
-		if (!(mini_calloc(line, len)))
-			return (-1);
-		z = process(line, buffer[fd], save, fd);
+		free(save[fd]);
+		return (0);
 	}
-	return (z);
+	i++;
+	temp = ft_calloc(sizeof(char), (ft_strlen(save[fd]) - i + 1));
+	if (!temp)
+		return (0);
+	while (save[fd][i])
+		temp[j++] = save[fd][i++];
+	temp[j] = '\0';
+	free(save[fd]);
+	return (temp);
+}
+
+int		get_next_line(int fd, char **line)
+{
+	static char		*save[4096];
+	char			buff[1 + 1];
+	int				reader;
+
+	if (fd < 0)
+		return (-1);
+	if (!save[fd])
+		save[fd] = ft_calloc(1, 1);
+	if (!save[fd])
+		return (-1);
+	reader = 1;
+	while (reader != 0 && !(have_return(save[fd])))
+	{
+		reader = read(fd, buff, 1);
+		if (reader == -1)
+			return (-1);
+		buff[reader] = '\0';
+		save[fd] = ft_strjoin(save[fd], buff);
+	}
+	*line = get_new_line(save, fd);
+	save[fd] = get_new_save(save, fd);
+	return (reader);
 }

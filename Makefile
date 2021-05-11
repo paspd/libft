@@ -87,11 +87,11 @@ SRCS_FILES	=	convert/ft_atoi.c \
 				list/ft_lstlast.c \
 				list/ft_lstsize.c \
 				gnl/get_next_line.c \
-				gnl/get_next_line_utils.c \
 				files/ft_open_files.c \
 				files/ft_close_files.c \
 				other/ft_rand_in_range.c \
-				other/ft_rand_percent.c
+				other/ft_rand_percent.c \
+				other/ft_swap.c
 
 OBJS_FILES	=	${SRCS_FILES:.c=.o}
 
@@ -108,13 +108,12 @@ INCS		=	libft.h
 $(OBJS_PATH)/%.o:	$(SRCS_PATH)/%.c $(HEADER)
 	@mkdir -p $(OBJS_PATH) $(SRCS_SUP)
 	@gcc ${FLAGS} -I ${INCS} -c $< -o $@ -D BUFFER_SIZE=1
-	@printf "$(YELLOW)$(BOLD)$(ERASE)COMPILING: $(END) $(RED)$<$(END)"
+	@printf "$(ERASE)$(YELLOW)$(BOLD)COMPILING: $(END) $(RED)$<$(END)"
 
 all:	${NAME}
 
 ${NAME}:	${OBJS}
 	@ar rc ${NAME} $(OBJS)
-	@printf "$(ERASE)"
 	@printf "$(ERASE)$(RED)▓$(ORANGE)▓$(YELLOW)▓$(GREEN)▒$(BLUE)▒$(PURPLE)░░$(GREEN)$(BOLD)[LIBFT.A GENERATED]$(END)$(PURPLE)░░$(BLUE)▒$(GREEN)▒$(YELLOW)▓$(ORANGE)▓$(RED)▓\n$(END)"
 
 clean:
