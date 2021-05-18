@@ -6,7 +6,7 @@
 /*   By: leodauga <leodauga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:28:25 by ldauga            #+#    #+#             */
-/*   Updated: 2021/04/23 20:58:57 by leodauga         ###   ########.fr       */
+/*   Updated: 2021/05/17 14:08:40 by leodauga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 typedef struct s_list
 {
 	int 			content;
+	int				rank;
 	struct s_list	*next;
 }				t_list;
 
